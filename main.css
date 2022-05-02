@@ -1,0 +1,93 @@
+ul {
+  list-style: none;
+}
+
+/*table  {*/
+/*    width: 200px*/
+/*}*/
+
+td {
+    width: 30%;
+}
+
+.img {
+    width: 15px;
+    height: 15px;
+}
+
+.img:hover {
+   cursor: pointer;
+}
+
+/* textbox */
+.box22{
+    padding: 0.5em 1em;
+    margin: 1em 0;
+    background: #f4f4f4;
+    border: none;
+    border-left: solid 6px #ffc10f;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.33);
+}
+.box22:focus  {
+    outline: None
+}
+
+.box{
+  display: table-cell;
+  vertical-align: top;
+}
+
+.boxContainer{
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+}
+
+#box1 {
+  background-color: #fdd;
+}
+#box2 {
+  background-color: #ddf;
+}
+
+
+ul {
+  list-style-type: none;
+  min-height: 30px;
+}
+li {
+  cursor: pointer;
+  padding: 10px;
+  border: solid #ddd 1px;
+}
+
+
+/* button */
+.btn-square:active {
+  /*ボタンを押したとき*/
+  /*-webkit-transform: translateY(4px);*/
+  transform: translateY(4px);/*下に動く*/
+  border-bottom: none;/*線を消す*/
+}
+
+.btn-square {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+  background: #515545;
+}
+
+#btn-add {
+  background: #668ad8;/*ボタン色*/
+}
+
+#btn-edit {
+  background: #add635;
+}
+
+/*#btn-delete {*/
+/*  background: #e26f8a;*/
+/*}*/
