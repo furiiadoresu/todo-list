@@ -10,82 +10,39 @@
   <h1>TODO list</h1>
   
   <div id="app">
-    <!--<input type="text" v-model="addType" placeholder="Type→はじめは普通">-->
     <input type="text" v-model="addTodo" class="box22" placeholder="ToDoを入力">
     <button v-on:click="newTodo()" class="btn-square" id="btn-add">追加</button><hr>
     
-
     <div class="boxContainer">
         <div class="box" id="box1">
           <p><big>Pinned</big></p>
-            <draggable tag="ul" :options="{group:'LISTS'}" @end="onEnd" id="pinned">
+            <draggable tag="ul" :options="{group:'LISTS'}" :list="list.pinned">
               <li v-for="(item, index) in list.pinned" :key="`Pinned_${index}`">
-                <input type="text" class="box22" v-model="item">
+                <input type="text" class="box22" v-model="item.name">
                 <img v-on:click="delToDo(index, 'pinned')" src="./img/mark_batsu.png" alt="x" class="img">
               </li>
             </draggable>
         </div>
         <div class="box">
           <p><big>TODO</big></p>
-            <draggable tag="ul" :options="{group:'LISTS'}" @end="onEnd" id="normal">
+            <draggable tag="ul" :options="{group:'LISTS'}" :list="list.normal">
               <li v-for="(item, index) in list.normal" :key="`Normal_${index}`">
-                <input type="text" class="box22" v-model="item">
+                <input type="text" class="box22" v-model="item.name">
                 <img v-on:click="delToDo(index, 'normal')" src="./img/mark_batsu.png" alt="x" class="img">
               </li>
             </draggable>
         </div>
         <div class="box" id="box2">
           <p><big>finished</big></p> 
-            <draggable :options="{group:'LISTS'}" @end="onEnd" tag="ul" id="finished">
+            <draggable tag="ul" :options="{group:'LISTS'}" :list="list.finished">
               <li v-for="(item, index) in list.finished" :key="`Finished_${index}`">
-                <input type="text" class="box22" v-model="item">
+                <input type="text" class="box22" v-model="item.name">
                 <img v-on:click="delToDo(index, 'finished')" src="./img/mark_batsu.png" alt="x" class="img">
               </li>
             </draggable>
         </div>
       </div> 
-
-      
-    <!--  <div class="box" id="box1">-->
-    <!--    <th>Pinned</th>-->
-    <!--    <draggable tag="ul" :options="{group:'LISTS'}" @end="onEnd" item-key="test">-->
-    <!--      <li v-for="(item, index) in list" :key="`Pinned_${index}`" v-if="item.type === 'pinned'">-->
-          <!--<li v-for="(item, index) in list" :key="index" v-if="item.type === 'pinned'">-->
-    <!--        <input type="text" class="box22" v-model="item.todo">-->
-    <!--        <button v-on:click="editToDo(index, item.todo, $event)" class="btn-square" id="btn-edit" value="normal">unpin</button>-->
-    <!--        <button v-on:click="editToDo(index, item.todo, $event)" class="btn-square" id="" value="finished">finish</button>-->
-    <!--        <img v-on:click="delToDo(item.index)" src="./img/mark_batsu.png" alt="x" class="img">-->
-    <!--      </li>-->
-    <!--      <span v-else></span>-->
-    <!--    </draggable>-->
-    <!--  </div>-->
-    <!--  <div class="box">-->
-    <!--    <th>Todo</th>-->
-    <!--    <draggable tag="ul" :options="{group:'LISTS'}" @end="onEnd">-->
-    <!--      <li v-for="(item, index) in list" :key="index" v-if="item.type === 'normal'">-->
-    <!--        <input type="text" class="box22" v-model="item.todo">-->
-    <!--        <button v-on:click="editToDo(index, item.todo, $event)" class="btn-square" id="btn-add" value="pinned">pin</button>-->
-    <!--        <button v-on:click="editToDo(index, item.todo, $event)" class="btn-square" id="" value="finished">finish</button>-->
-    <!--        <img v-on:click="delToDo(index)" src="./img/mark_batsu.png" alt="x" class="img">-->
-    <!--      </li>-->
-    <!--      <span v-else></span>-->
-    <!--    </draggable>-->
-    <!--  </div>-->
-    <!--  <div class="box" id="box2">-->
-    <!--    <th>Finished</th> -->
-    <!--    <draggable :options="{group:'LISTS'}" @end="onEnd" tag="ul">-->
-    <!--      <li v-for="(item, index) in list" :key="index" v-if="item.type === 'finished'">-->
-    <!--        <input type="text" class="box22" v-model="item.todo">-->
-    <!--        <button v-on:click="editToDo(index, item.todo, $event)" class="btn-square" id="btn-edit" value="normal">cancel</button>-->
-    <!--        <img v-on:click="delToDo(index)" src="./img/mark_batsu.png" alt="x" class="img">-->
-    <!--      </li>-->
-    <!--      <span v-else></span>-->
-    <!--    </draggable>-->
-    <!--  </div>-->
-    <!--</div> -->
-    
   </div>
-  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>-->
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.8.4/Sortable.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Vue.Draggable/2.23.2/vuedraggable.umd.min.js"></script>
   <script src="contents.js"></script>
